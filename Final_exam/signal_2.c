@@ -1,0 +1,19 @@
+// CPP program to illustrate User-defined Signal Handler
+#include<stdio.h>
+#include<signal.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <signal.h>
+// Handler for SIGINT, caused by
+// Ctrl-C at keyboard
+void handle_sigint(int sig)
+{
+printf("Caught signal %d\n", sig);
+}
+int main()
+{
+    signal(SIGINT, handle_sigint);  //signal is function 1st perameter will produce interrupt if 
+    //interrupt issue then this function call-->handle_sigint 
+    while (1) ;
+    return 0;
+}
